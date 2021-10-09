@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom"
 import Home from '../components/Home'
 // import CompaniesList from '../components/CompaniesList'
 // import JobsList from '../components/Jobs'
-// import Login from '../components/Login'
-// import Signup from '../components/Signup'
+import LoginForm from '../components/LoginForm'
+import SignupForm from '../components/SignupForm'
 // import Profile from '../components/Profile'
 
 
@@ -13,6 +13,14 @@ const Routes = () => {
         <Switch>
             <Route exact path="/">
                 <Home />
+            </Route>
+
+            <Route exact path="/signup">
+                <SignupForm />
+            </Route>
+
+            <Route exact path="/login">
+                <LoginForm />
             </Route>
 
             {/* 
@@ -28,9 +36,7 @@ const Routes = () => {
                 <JobsList /> 
             </Route>
 
-            <Route exact path="/login">
-                <Login />
-            </Route>
+
 
             <Route exact path="/signup">
                 <Signup />
