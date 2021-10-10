@@ -1,0 +1,22 @@
+.CompanyCard-tile {
+    background-color: #F5F5F5;
+    margin: auto; 
+    margin-bottom: 15px;
+    width: 75%; 
+    padding: 15px 15px 20px 15px; 
+}
+
+.CompanyCard-link {
+    text-decoration: none; 
+    color: black; 
+}
+
+.CompanyCard-link:hover {
+    color: darkblue;
+}
+
+h6 {
+    padding-top: 10px;
+    font-weight: bold; 
+    color: rgb(214, 5, 5); 
+}
