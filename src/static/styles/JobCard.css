@@ -1,0 +1,15 @@
+.JobCard-tile {
+    background-color: #F5F5F5;
+    margin: auto; 
+    margin-top: 20px; 
+    width: 50%; 
+}
+
+.card-title {
+    font-weight: bold; 
+    color: rgb(214, 5, 5); 
+}
+
+.card-text {
+    padding-top: 5px; 
+}
