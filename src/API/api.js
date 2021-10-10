@@ -43,10 +43,27 @@ class JoblyApi {
     return res.company;
   }
 
-  // obviously, you'll add a lot here ...
+  // Get all Companies
+  static async getCompanies(searchTerm) {
+    const params = { name: searchTerm } 
+    let res = await this.request(`companies`, params) 
+    return res.companies 
+  }
+
+  // Get all Jobs 
+  static async getJobs(searchTerm) {
+    const params = { title: searchTerm }
+    let res = await this.request(`jobs`, params) 
+    return res.jobs 
+  }
+
+  // Methods for signup new user, get user profile, get auth token, patch user profile, apply for a Job? 
+
 }
 
 // for now, put token ("testuser" / "password" on class)
 JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
+export default JoblyApi 
