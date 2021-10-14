@@ -1,5 +1,5 @@
 import React from "react"
-// import "../static/styles/NavBar.css"
+import "../static/styles/NavBar.css"
 import { Link } from "react-router-dom"
 import {
     Navbar,
@@ -12,23 +12,23 @@ import {
 const NavBar = () => {
     return (
         <div>
-            <Navbar color="light" light expand="lg">
-                <NavbarBrand tag={Link} exact to="/">Jobly</NavbarBrand>
+            <Navbar color="light" light expand="md">
+                <NavbarBrand className="text-primary" tag={Link} to="/">Jobly</NavbarBrand>
                 <Nav className="mr-auto" navbar>
                     <NavItem>
-                    <NavLink tag={Link} exact to="/companies">Companies</NavLink>
+                        <NavLink tag={Link} to="/companies">Companies</NavLink>
                     </NavItem>
                     <NavItem>
-                    <NavLink tag={Link} exact to="/jobs">Jobs</NavLink>
+                        <NavLink tag={Link} to="/jobs">Jobs</NavLink>
                     </NavItem>
                     <NavItem>
-                    <NavLink tag={Link} exact to="/login">Login</NavLink>
+                        <NavLink tag={Link} to="/login">Login</NavLink>
                     </NavItem>
                     <NavItem>
-                    <NavLink tag={Link} exact to="/profile">Profile</NavLink>
+                        <NavLink tag={Link} to="/profile">Profile</NavLink>
                     </NavItem>
                     <NavItem>
-                    <NavLink tag={Link} exact to="/signup">Signup</NavLink>
+                        <NavLink tag={Link} to="/signup">Signup</NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>
