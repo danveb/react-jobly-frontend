@@ -1,8 +1,9 @@
 import React from 'react' 
 import { Route, Switch } from "react-router-dom"
 import Home from '../components/Home'
-// import CompaniesList from '../components/CompaniesList'
-// import JobsList from '../components/Jobs'
+import CompanyList from '../components/CompanyList'
+import CompanyDetail from '../components/CompanyDetail'
+import JobList from '../components/JobList'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
 // import Profile from '../components/Profile'
@@ -15,6 +16,18 @@ const Routes = () => {
                 <Home />
             </Route>
 
+            <Route exact path="/companies">
+                <CompanyList />
+            </Route>
+
+            <Route path="/companies/:handle">
+                <CompanyDetail />
+            </Route>
+
+            <Route exact path="/jobs">
+                <JobList /> 
+            </Route>
+
             <Route exact path="/signup">
                 <SignupForm />
             </Route>
@@ -23,30 +36,9 @@ const Routes = () => {
                 <LoginForm />
             </Route>
 
-            {/* 
-            
-            <Route exact path="/companies">
-                <CompaniesList />
+            <Route exact path="/profile">
+                {/* Profile Component here */}
             </Route>
-
-            <Route path="/companies/:id">
-            </Route>
-
-            <Route exact path="/jobs">
-                <JobsList /> 
-            </Route>
-
-
-
-            <Route exact path="/signup">
-                <Signup />
-            </Route>
-
-            <Route exact path="profile">
-                <Profile />
-            </Route> 
-            
-            */}
             
         </Switch>
     )
