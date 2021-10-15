@@ -55,7 +55,7 @@ class JoblyApi {
   // Get all Jobs 
   static async getJobs(searchTerm) {
     const params = {
-      name: searchTerm 
+      title: searchTerm 
     }
     let res = await this.request(`jobs`, params) 
     return res.jobs 
