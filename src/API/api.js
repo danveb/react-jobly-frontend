@@ -57,7 +57,7 @@ class JoblyApi {
     const params = {
       name: searchTerm 
     }
-    let res = await this.request(`jobs`, searchTerm) 
+    let res = await this.request(`jobs`, params) 
     return res.jobs 
   }
 
