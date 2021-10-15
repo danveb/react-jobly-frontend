@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
 import '../static/styles/SearchForm.css' 
 
-
-const SearchForm = () => {
+const SearchForm = ({ updateSearchTerm }) => {
     // initialize INITIAL_STATE obj
     const INITIAL_STATE = {
-        search: ''
+        searchTerm: ''
     }
     const [formData, setFormData] = useState(INITIAL_STATE) 
 
@@ -21,21 +20,22 @@ const SearchForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-        console.log('submitted') 
+        // if formData has a value use it, or return undefined
+        const searchValue = formData.searchTerm ? formData.searchTerm : undefined 
+        updateSearchTerm(searchValue) 
     }
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Label htmlFor="search"></Label>
+            <Label htmlFor="searchTerm"></Label>
             <FormGroup>
             <Input 
-                id="search"
+                id="searchTerm"
                 type="text"
-                name="search"
+                name="searchTerm"
                 placeholder="Enter search term..."
-                value={formData.value} 
+                value={formData.searchTerm} 
                 onChange={handleChange}
-            
             />
             </FormGroup>
 
