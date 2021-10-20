@@ -6,7 +6,7 @@ import CompanyDetail from '../components/CompanyDetail'
 import JobList from '../components/JobList'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
-// import Profile from '../components/Profile'
+import Profile from '../components/Profile'
 
 
 const Routes = () => {
@@ -37,7 +37,7 @@ const Routes = () => {
             </Route>
 
             <Route exact path="/profile">
-                {/* Profile Component here */}
+                <Profile />
             </Route>
             
         </Switch>

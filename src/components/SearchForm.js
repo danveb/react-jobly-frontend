@@ -26,22 +26,19 @@ const SearchForm = ({ updateSearchTerm }) => {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Label htmlFor="searchTerm"></Label>
+        <Form inline onSubmit={handleSubmit}>
             <FormGroup>
-            <Input 
-                id="searchTerm"
-                type="text"
-                name="searchTerm"
-                placeholder="Enter search term..."
-                value={formData.searchTerm} 
-                onChange={handleChange}
-            />
+                <Label htmlFor="searchTerm"></Label>
+                <Input 
+                    id="searchTerm"
+                    type="text"
+                    name="searchTerm"
+                    placeholder="Enter search term..."
+                    value={formData.searchTerm} 
+                    onChange={handleChange}
+                />
             </FormGroup>
-
-            <FormGroup>
-                <Button className="btn-submit" color="primary">Submit</Button>{' '}
-            </FormGroup>
+            <Button className="btn-submit" color="primary">Submit</Button>{' '}
         </Form>
     )
 }

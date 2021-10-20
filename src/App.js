@@ -3,15 +3,16 @@ import { BrowserRouter } from 'react-router-dom'
 import NavBar from './components/NavBar' 
 import Routes from './routes/Routes'
 import './App.css'
+import JoblyApi from './API/api'
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
-          <main>
+          {/* <main> */}
             <Routes />
-          </main>
+          {/* </main> */}
       </BrowserRouter>
     </div>
   );

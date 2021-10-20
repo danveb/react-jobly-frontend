@@ -1,6 +1,5 @@
-import React from "react"
-import "../static/styles/NavBar.css"
-import { Link } from "react-router-dom"
+import '../static/styles/NavBar.css'
+import { Link } from 'react-router-dom'
 import {
     Navbar,
     NavbarBrand,
@@ -22,10 +21,10 @@ const NavBar = () => {
                         <NavLink tag={Link} to="/jobs">Jobs</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} to="/login">Login</NavLink>
+                        <NavLink tag={Link} to="/profile">Profile</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} to="/profile">Profile</NavLink>
+                        <NavLink tag={Link} to="/login">Login</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink tag={Link} to="/signup">Signup</NavLink>
