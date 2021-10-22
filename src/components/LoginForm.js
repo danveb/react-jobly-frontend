@@ -1,13 +1,15 @@
 import React, { useState } from 'react' 
+import { useHistory } from 'react-router'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
 import '../static/styles/LoginForm.css' 
 
-const LoginForm = () => {
+const LoginForm = ({ props }) => {
+    const history = useHistory() 
 
     // initialize INITIAL_STATE obj
     const INITIAL_STATE = {
-        username: '', 
-        password: '',
+        username: 'test_user', 
+        password: 'testtest',
     }
     // formData, setFormData = useState
     const [formData, setFormData] = useState(INITIAL_STATE)
@@ -19,12 +21,12 @@ const LoginForm = () => {
             ...formData, 
             [name]: value 
         }))
-        console.log('Changing!') 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault() 
-        console.log('Submitted!') 
+        await props.handleLogin(formData) 
+        history.push('/') 
     }
 
     return (

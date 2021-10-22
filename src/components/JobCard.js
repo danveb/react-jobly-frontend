@@ -3,11 +3,12 @@ import { Button, Card, CardBody, CardText, CardTitle, InputGroupAddon } from "re
 import "../static/styles/JobCard.css"
 
 const JobCard = ({ title, salary, equity, companyName }) => {
+    
     return (
         <div>
         <Card className="JobCard-tile">
             <CardBody>
-                <CardTitle tag="h6">{title}</CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <CardText>{companyName}</CardText>
                 <CardText>{`Salary: $${Number(salary).toLocaleString()} | Equity: ${equity === null ? 0 : equity}%`}</CardText>
                 <InputGroupAddon addonType="append">
