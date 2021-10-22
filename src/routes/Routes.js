@@ -26,7 +26,7 @@ const Routes = ({ props }) => {
             </Route>
 
             <Route exact path="/jobs">
-                <JobList /> 
+                <JobList props={props} /> 
             </Route>
 
             <Route exact path="/signup">
