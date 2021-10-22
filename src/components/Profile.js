@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react' 
+import { Redirect } from 'react-router-dom'
 import UserContext from '../UserContext'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
 // import '../static/styles/Profile.css' 
@@ -27,7 +28,7 @@ const Profile = ({ props }) => {
         document.getElementById('password').value = ''
     }
 
-    return (
+    return user.username ? (
         <div>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
@@ -92,6 +93,8 @@ const Profile = ({ props }) => {
                 </FormGroup>
             </Form>
         </div>
+    ) : (
+        <Redirect to="/"></Redirect>
     )
 }
 

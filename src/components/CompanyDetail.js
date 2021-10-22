@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react' 
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react' 
+import UserContext from '../UserContext'
+import { useParams, Redirect } from 'react-router-dom'
 import JoblyApi from '../API/api' 
 import JobCard from './JobCard' 
 import '../static/styles/CompanyDetail.css'
 
 const CompanyDetail = () => {
+    const user = useContext(UserContext) 
     const { handle } = useParams() 
 
     const INITIAL_STATE = {
@@ -23,7 +25,7 @@ const CompanyDetail = () => {
         getCompanyDetailAPI(handle) 
     }, [handle])
 
-    return (
+    return user.username ? (
         <div className="CompanyDetail-div">
             <h4>{companyDetail.name}</h4>
             <p>{companyDetail.description}</p>
@@ -39,6 +41,8 @@ const CompanyDetail = () => {
                 ))}
             </div>
         </div>
+    ) : (
+        <Redirect to="/"></Redirect>
     )
 }
 

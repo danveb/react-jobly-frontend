@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react' 
+import React, { useState, useEffect, useContext } from 'react' 
+import { Redirect } from 'react-router-dom'
+import UserContext from '../UserContext'
 import JoblyApi from '../API/api' 
 import SearchForm from './SearchForm'
 import CompanyCard from './CompanyCard' 
@@ -6,6 +8,7 @@ import useSearchTerm from '../hooks/useSearchTerm'
 import '../static/styles/CompanyList.css' 
 
 const CompanyList = () => {
+    const user = useContext(UserContext)
     const [companies, setCompanies] = useState([])
     const [searchTerm, updateSearchTerm] = useSearchTerm() 
 
@@ -25,7 +28,7 @@ const CompanyList = () => {
         // searchTerm dependency now
     }, [searchTerm]); 
 
-    return (
+    return user.username ? (
         <div className="CompanyList-div">
             <SearchForm updateSearchTerm={updateSearchTerm} /> 
             {companies.map((c) => (
@@ -37,6 +40,8 @@ const CompanyList = () => {
                 />
             ))}
         </div>
+    ) : (
+        <Redirect to="/"></Redirect>
     )
 }
 
