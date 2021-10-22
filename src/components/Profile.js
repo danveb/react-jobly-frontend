@@ -1,19 +1,11 @@
-import React, { useState } from 'react' 
+import React, { useState, useContext } from 'react' 
+import UserContext from '../UserContext'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
 // import '../static/styles/Profile.css' 
 
-const Profile = () => {
-
-    // initialize INITIAL_STATE obj
-    const INITIAL_STATE = {
-        profile: '', 
-        firstName: '',
-        firstName: '', 
-        lastName: '', 
-        email: '' 
-    }
-    // formData, setFormData = useState
-    const [formData, setFormData] = useState(INITIAL_STATE)
+const Profile = ({ props }) => {
+    const user = useContext(UserContext) 
+    const [formData, setFormData] = useState(user)
 
     const handleChange = (e) => {
         // destructure {} = e.target
@@ -25,9 +17,14 @@ const Profile = () => {
         console.log('Changing!') 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault() 
-        console.log('Submitted!') 
+        await props.updateProfile(formData) 
+        setFormData({
+            ...formData, 
+            password: ''
+        })
+        document.getElementById('password').value = ''
     }
 
     return (
@@ -35,12 +32,12 @@ const Profile = () => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <h3>Profile</h3> 
-                    <Label htmlFor="profile">Profile</Label>
+                    <Label htmlFor="username">Username</Label>
                     <Input 
-                        id="profile" 
+                        id="username" 
                         type="text"
-                        name="profile"
-                        value={formData.profile}
+                        name="username"
+                        value={formData.username}
                         onChange={handleChange}
                     />
                 </FormGroup>
@@ -80,12 +77,12 @@ const Profile = () => {
 
                 {/* Confirm password to make changes */}
                 <FormGroup>
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="password">Enter password to update:</Label>
                     <Input 
-                        id="email" 
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                        id="password" 
+                        type="password"
+                        name="password"
+                        value={formData.password}
                         onChange={handleChange}
                     />
                 </FormGroup>

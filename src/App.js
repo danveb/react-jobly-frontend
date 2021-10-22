@@ -66,12 +66,17 @@ const App = () => {
     })
   }
 
+  const updateProfile = async (formData) => {
+    const response = await JoblyApi.updateProfile(formData) 
+    setUser(response)
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={user}>
           <NavBar />
-          <Routes props={{ handleLogin, handleLogout, handleSignup }}/>
+          <Routes props={{ handleLogin, handleLogout, handleSignup, updateProfile }}/>
         </UserContext.Provider>
       </BrowserRouter>
     </div>

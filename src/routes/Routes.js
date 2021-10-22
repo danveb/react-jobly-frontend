@@ -38,7 +38,7 @@ const Routes = ({ props }) => {
             </Route>
 
             <Route exact path="/profile">
-                <Profile />
+                <Profile props={props} />
             </Route>
 
             <Route exact path="/logout">
