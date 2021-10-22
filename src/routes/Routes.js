@@ -7,9 +7,10 @@ import JobList from '../components/JobList'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
 import Profile from '../components/Profile'
+import Logout from '../components/Logout'
 
 
-const Routes = () => {
+const Routes = ({ props }) => {
     return (
         <Switch>
             <Route exact path="/">
@@ -29,15 +30,19 @@ const Routes = () => {
             </Route>
 
             <Route exact path="/signup">
-                <SignupForm />
+                <SignupForm props={props} />
             </Route>
 
             <Route exact path="/login">
-                <LoginForm />
+                <LoginForm props={props} />
             </Route>
 
             <Route exact path="/profile">
                 <Profile />
+            </Route>
+
+            <Route exact path="/logout">
+                <Logout props={props} />
             </Route>
             
         </Switch>

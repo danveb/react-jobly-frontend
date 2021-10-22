@@ -61,7 +61,29 @@ class JoblyApi {
     return res.jobs 
   }
 
-  // Methods for signup new user, get user profile, get auth token, patch user profile, apply for a Job? 
+  // Signup new user 
+  static async signup(data) {
+    let res = await this.request(`auth/register`, data, 'post')
+    return res
+  }
+
+  // Login user
+  static async login(data) {
+    let res = await this.request(`auth/token`, data, 'post')
+    return res
+  }
+
+  // Get current user 
+  static async getUser(username) {
+    let res = await this.request(`users/${username}`)
+    return res.user 
+  }
+
+  // Save user profile page 
+  static async saveProfile(username, data) {
+    let res = await this.request(`users/${username}`, data, 'patch')
+    return res.user 
+  }
 
 }
 

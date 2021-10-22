@@ -14,15 +14,11 @@ const JobList = () => {
             const response = await JoblyApi.getJobs(searchTerm) 
             setJobs(response)
         }
-        // call async function now 
-        // - include searchTerm as params now
         getJobs(searchTerm) 
 
-        // later on we can run a cleanup function 
         return function cleanup() {
             setJobs([])
         }
-        // searchTerm dependency now
     }, [searchTerm]); 
 
     return (

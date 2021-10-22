@@ -1,17 +1,20 @@
 import React, { useState } from 'react' 
+import { useHistory } from 'react-router' 
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
 import '../static/styles/SignupForm.css' 
 
-const SignupForm = () => {
+const SignupForm = ({ props }) => {
+    const history = useHistory() 
 
     // initialize INITIAL_STATE obj
     const INITIAL_STATE = {
-        username: '', 
-        password: '',
-        firstName: '', 
-        lastName: '', 
-        email: '' 
+        username: 'test_user', 
+        password: 'testtest',
+        firstName: 'test', 
+        lastName: 'user', 
+        email: 'test@test.com' 
     }
+
     // formData, setFormData = useState
     const [formData, setFormData] = useState(INITIAL_STATE)
 
@@ -22,12 +25,12 @@ const SignupForm = () => {
             ...formData, 
             [name]: value 
         }))
-        console.log('Changing!') 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault() 
-        console.log('Submitted!') 
+        await props.handleSignup(formData) 
+        history.push('/') 
     }
 
     return (

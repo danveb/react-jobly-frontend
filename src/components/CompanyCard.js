@@ -1,9 +1,10 @@
-import React from "react"
-import { Card, CardBody, CardText, CardTitle } from "reactstrap"
-import { Link } from "react-router-dom"
-import "../static/styles/CompanyCard.css"
+import React from 'react'
+import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import '../static/styles/CompanyCard.css'
 
 const CompanyCard = ({ handle, name, description }) => {
+    
     return (
         <div>
             <Card className="CompanyCard-tile">
@@ -18,4 +19,4 @@ const CompanyCard = ({ handle, name, description }) => {
     )
 }
 
-export default CompanyCard;
+export default CompanyCard
