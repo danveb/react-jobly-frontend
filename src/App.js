@@ -17,10 +17,18 @@ const App = () => {
 
   const [authToken, setAuthToken] = useState()
 
-  useEffect(() => setAuthToken({
-    username: '',
-    authToken: ''
-  }), [])
+  // useEffect(() => setAuthToken({
+  //   username: '',
+  //   authToken: ''
+  // }), [])
+
+  useEffect(() => {
+    setAuthToken(
+      localStorage.getItem('authToken') 
+      ? JSON.parse(localStorage.getItem('authToken')) 
+      : { username: '', authToken: ''}
+    )
+  }, [])
 
   useEffect(() => {
     async function getUserApi() {
@@ -30,6 +38,7 @@ const App = () => {
 
     if(authToken && authToken.authToken) {
       JoblyApi.token = authToken.authToken 
+      localStorage.setItem('authToken', JSON.stringify(authToken))
       getUserApi() 
     } else {
       JoblyApi.token = ''
@@ -56,6 +65,7 @@ const App = () => {
       username: '',
       authToken: ''
     })
+    localStorage.removeItem('authToken')
   }
 
   const handleSignup = async (formData) => {
