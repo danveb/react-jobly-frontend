@@ -13,7 +13,7 @@ const Home = () => {
                 {/* ternary operator for displaying welcome message or login/signup page */}
                 { user && user.username ? (
                     <>
-                    <h1>Welcome Back {user.username}</h1>
+                    <h1>Welcome Back {user.firstName[0].toUpperCase().concat(user.username.slice(1).concat('!'))}</h1>
                     </>
                 ) : (
                     <>
