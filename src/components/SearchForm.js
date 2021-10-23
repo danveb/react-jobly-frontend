@@ -1,5 +1,5 @@
 import React, { useState } from 'react' 
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
+import { Form, InputGroup, Button } from 'react-bootstrap' 
 import '../static/styles/SearchForm.css' 
 
 const SearchForm = ({ updateSearchTerm }) => {
@@ -26,10 +26,9 @@ const SearchForm = ({ updateSearchTerm }) => {
     }
 
     return (
-        <Form inline onSubmit={handleSubmit}>
-            <FormGroup>
-                <Label htmlFor="searchTerm"></Label>
-                <Input 
+        <Form className="SearchForm" onSubmit={handleSubmit}>
+            <InputGroup>
+                <Form.Control
                     id="searchTerm"
                     type="text"
                     name="searchTerm"
@@ -37,8 +36,8 @@ const SearchForm = ({ updateSearchTerm }) => {
                     value={formData.searchTerm} 
                     onChange={handleChange}
                 />
-            </FormGroup>
-            <Button className="btn-submit" color="primary">Submit</Button>{' '}
+                <Button type="submit" variant="primary">Submit</Button>
+            </InputGroup>
         </Form>
     )
 }

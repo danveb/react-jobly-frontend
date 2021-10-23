@@ -26,10 +26,9 @@ const CompanyDetail = () => {
     }, [handle])
 
     return user.username ? (
-        <div className="CompanyDetail-div">
-            <h4>{companyDetail.name}</h4>
-            <p>{companyDetail.description}</p>
-            <div className="CompanyDetail-div2">
+        <div className="CompanyDetail">
+            <h3>{companyDetail.name}</h3>
+            <div>{companyDetail.description}</div>
                 {companyDetail.jobs.map((j) => (
                     <JobCard
                         key={j.id}
@@ -39,7 +38,6 @@ const CompanyDetail = () => {
                         equity={j.equity}
                     />
                 ))}
-            </div>
         </div>
     ) : (
         <Redirect to="/"></Redirect>

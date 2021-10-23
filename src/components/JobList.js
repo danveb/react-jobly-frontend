@@ -5,7 +5,6 @@ import JoblyApi from '../API/api'
 import JobCard from './JobCard' 
 import SearchForm from './SearchForm'
 import useSearchTerm from '../hooks/useSearchTerm'
-import '../static/styles/JobList.css'
 
 const JobList = ({ props }) => {
     const user = useContext(UserContext)

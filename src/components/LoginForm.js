@@ -1,6 +1,6 @@
 import React, { useState } from 'react' 
 import { useHistory } from 'react-router'
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
+import { Form, Button } from 'react-bootstrap' 
 import '../static/styles/LoginForm.css' 
 
 const LoginForm = ({ props }) => {
@@ -30,36 +30,34 @@ const LoginForm = ({ props }) => {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleSubmit}>
-                <h3>Log In</h3>
-                <FormGroup>
-                    <Label htmlFor="username">Username</Label>
-                    <Input 
-                        id="username" 
-                        type="text"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+        <Form className="LoginForm" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+                <h3>Log In</h3> 
+                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Control 
+                    id="username" 
+                    type="text"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input 
-                        id="password" 
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Control 
+                    id="password" 
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Button className="btn-submit" color="primary">Log In</Button>{' '}
-                </FormGroup>
-            </Form>
-        </div>
+            <Form.Group className="mb-3">
+                <Button type="submit" className="btn-submit" color="primary">Log In</Button>{' '}
+            </Form.Group>
+        </Form>
     )
 }
 

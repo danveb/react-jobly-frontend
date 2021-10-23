@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../static/styles/CompanyCard.css'
 
@@ -7,13 +7,13 @@ const CompanyCard = ({ handle, name, description }) => {
     
     return (
         <div>
-            <Card className="CompanyCard-tile">
-                <CardBody>
+            <Card className="CompanyCard my-3">
+                <Card.Body>
                     <Link className="CompanyCard-link" to={`/companies/${handle}`}>
-                    <CardTitle tag="h6">{name}</CardTitle>
-                    <CardText>{description}</CardText>
+                    <Card.Title tag="h6">{name}</Card.Title>
+                    <Card.Text>{description}</Card.Text>
                     </Link>
-                </CardBody>
+                </Card.Body>
             </Card>
         </div>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react' 
 import { useHistory } from 'react-router' 
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
+import { Form, Button } from 'react-bootstrap' 
 import '../static/styles/SignupForm.css' 
 
 const SignupForm = ({ props }) => {
@@ -34,69 +34,67 @@ const SignupForm = ({ props }) => {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleSubmit}>
+        <Form className="SignupForm" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
                 <h3>Sign Up</h3>
-                <FormGroup>
-                    <Label htmlFor="username">Username</Label>
-                    <Input 
-                        id="username" 
-                        type="text"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Control 
+                    id="username" 
+                    type="text"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input 
-                        id="password" 
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Control 
+                    id="password" 
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input 
-                        id="firstName" 
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="firstName">First Name</Form.Label>
+                <Form.Control 
+                    id="firstName" 
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input 
-                        id="lastName" 
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="lastName">Last Name</Form.Label>
+                <Form.Control 
+                    id="lastName" 
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
-                        id="email" 
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="email">Email</Form.Label>
+                <Form.Control 
+                    id="email" 
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                <FormGroup>
-                    <Button className="btn-submit" color="primary">Sign Up</Button>{' '}
-                </FormGroup>
-            </Form>
-        </div>
+            <Form.Group className="mb-3">
+                <Button className="btn-submit" variant="primary">Sign Up</Button>{' '}
+            </Form.Group>
+        </Form>
     )
 }
 

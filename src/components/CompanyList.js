@@ -5,7 +5,7 @@ import JoblyApi from '../API/api'
 import SearchForm from './SearchForm'
 import CompanyCard from './CompanyCard' 
 import useSearchTerm from '../hooks/useSearchTerm'
-import '../static/styles/CompanyList.css' 
+// import '../static/styles/CompanyList.css' 
 
 const CompanyList = () => {
     const user = useContext(UserContext)
