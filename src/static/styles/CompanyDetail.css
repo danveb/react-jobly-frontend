@@ -1,18 +1,6 @@
-.CompanyDetail-div {
-	display: flex;
-	flex-direction: column;
-	padding-top: 30px;
-	padding-left: 20px;
-}
-
-/* .CompanyDetail-div h4 {
+.CompanyDetail {
+	margin: auto;
+	padding-top: 40px;
 	text-align: center;
+	width: 50%;
 }
-
-.CompanyDetail-div p {
-	text-align: center;
-}
-
-.card-text p {
-	text-align: start;
-} */

@@ -1,20 +1,21 @@
-.CompanyCard-tile {
-    background-color: #F5F5F5;
-    margin: auto; 
-    margin-top: 20px; 
-    width: 75%; 
+.CompanyCard {
+	background-color: #f5f5f5;
+	margin: auto;
+	margin-top: 20px;
+	width: 65%;
 }
 
 .CompanyCard-link {
-    text-decoration: none; 
-    color: black; 
+	text-decoration: none;
+	color: black;
 }
 
 .CompanyCard-link:hover {
-    color: darkblue;
+	color: darkblue;
+	text-decoration: none;
 }
 
 .card-title {
-    font-weight: bold; 
-    color: rgb(214, 5, 5); 
+	font-weight: bold;
+	color: rgb(214, 5, 5);
 }

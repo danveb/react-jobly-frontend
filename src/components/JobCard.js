@@ -1,33 +1,29 @@
-import React, { useContext } from "react"
+import React, { useContext } from 'react'
 import UserContext from '../UserContext'
-import FunctionContext from "../FunctionContext"
-import { Button, Card, CardBody, CardText, CardTitle, InputGroupAddon } from "reactstrap"
-import "../static/styles/JobCard.css"
+import FunctionContext from '../FunctionContext'
+import { Button, Card } from 'react-bootstrap'
+import '../static/styles/JobCard.css'
 
 const JobCard = ({ title, jobID, salary, equity, companyName }) => {
     const user = useContext(UserContext) 
     const { handleJobApp } = useContext(FunctionContext) 
 
     return (
-        <div>
-        <Card className="JobCard-tile">
-            <CardBody>
-                <CardTitle>{title}</CardTitle>
-                <CardText>{companyName}</CardText>
-                <CardText>{`Salary: $${Number(salary).toLocaleString()} | Equity: ${equity === null ? 0 : equity}%`}</CardText>
-                <InputGroupAddon>
+        <Card className="JobCard">
+            <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>{companyName}</Card.Text>
+                <Card.Text>{`Salary: $${Number(salary).toLocaleString()} | Equity: ${equity === null ? 0 : equity}%`}</Card.Text>
                 {user.applications.find((j) => j === jobID) ? (
-                    <Button color="success">Applied</Button>
+                    <Button variant="success">Applied</Button>
                 ) : (
                     <Button 
-                    color="danger"
+                    variant="warning"
                     onClick={() => handleJobApp({ jobID, username: user.username })}
                     >Apply</Button>
                 )}
-                </InputGroupAddon>
-            </CardBody>
+            </Card.Body>
         </Card>
-        </div>
     )
 }
 

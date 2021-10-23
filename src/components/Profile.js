@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react' 
 import { Redirect } from 'react-router-dom'
 import UserContext from '../UserContext'
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap' 
-// import '../static/styles/Profile.css' 
+import { Form, Button } from 'react-bootstrap' 
+import '../static/styles/Profile.css' 
 
 const Profile = ({ props }) => {
     const user = useContext(UserContext) 
@@ -30,67 +30,68 @@ const Profile = ({ props }) => {
 
     return user.username ? (
         <div>
-            <Form onSubmit={handleSubmit}>
-                <FormGroup>
+            <Form className="Profile" onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
                     <h3>Profile</h3> 
-                    <Label htmlFor="username">Username</Label>
-                    <Input 
+                    <Form.Label htmlFor="username">Username</Form.Label>
+                    <Form.Control 
                         id="username" 
                         type="text"
                         name="username"
                         value={formData.username}
                         onChange={handleChange}
+                        readOnly
                     />
-                </FormGroup>
+                </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input 
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="firstName">First Name</Form.Label>
+                    <Form.Control 
                         id="firstName" 
                         type="text"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
                     />
-                </FormGroup>
+                </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input 
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="lastName">Last Name</Form.Label>
+                    <Form.Control 
                         id="lastName" 
                         type="text"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
                     />
-                </FormGroup>
+                </Form.Group>
 
-                <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="email">Email</Form.Label>
+                    <Form.Control 
                         id="email" 
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                     />
-                </FormGroup>
+                </Form.Group>
 
                 {/* Confirm password to make changes */}
-                <FormGroup>
-                    <Label htmlFor="password">Enter password to update:</Label>
-                    <Input 
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="password">Enter password to update:</Form.Label>
+                    <Form.Control 
                         id="password" 
                         type="password"
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
                     />
-                </FormGroup>
+                </Form.Group>
 
-                <FormGroup>
-                    <Button className="btn-submit" color="primary">Save Changes</Button>{' '}
-                </FormGroup>
+                <Form.Group className="mb-3">
+                    <Button type="submit" className="btn-submit" variant="primary">Save Changes</Button>{' '}
+                </Form.Group>
             </Form>
         </div>
     ) : (

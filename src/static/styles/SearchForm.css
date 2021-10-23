@@ -1,7 +1,5 @@
-.btn-submit {
-	margin-top: 10px;
-}
-
-.Form {
-	margin-top: 30px;
+.SearchForm {
+	margin: auto;
+	margin-top: 40px;
+	width: 65%;
 }
