@@ -1,0 +1,12 @@
+$ npx create-react-app react-jobly 
+$ npm install axios
+$ npm install react-router-dom
+$ npm install react-router-bootstrap 
+$ npm install react-bootstrap 
+$ npm install react-strap 
+
+$ createdb jobly 
+$ psql < jobly.sql 
+
+$ nodemon server.js (backend) 
+$ npm start (frontend) 
