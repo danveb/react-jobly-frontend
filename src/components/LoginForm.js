@@ -8,8 +8,8 @@ const LoginForm = ({ props }) => {
 
     // initialize INITIAL_STATE obj
     const INITIAL_STATE = {
-        username: 'test_user', 
-        password: 'testtest',
+        username: '', 
+        password: '',
     }
     // formData, setFormData = useState
     const [formData, setFormData] = useState(INITIAL_STATE)
@@ -55,7 +55,7 @@ const LoginForm = ({ props }) => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Button type="submit" className="btn-submit" color="primary">Log In</Button>{' '}
+                <Button type="submit" className="btn-submit" variant="primary">Log In</Button>{' '}
             </Form.Group>
         </Form>
     )

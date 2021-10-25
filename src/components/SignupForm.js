@@ -8,11 +8,11 @@ const SignupForm = ({ props }) => {
 
     // initialize INITIAL_STATE obj
     const INITIAL_STATE = {
-        username: 'test_user', 
-        password: 'testtest',
-        firstName: 'test', 
-        lastName: 'user', 
-        email: 'test@test.com' 
+        username: '', 
+        password: '',
+        firstName: '', 
+        lastName: '', 
+        email: '' 
     }
 
     // formData, setFormData = useState
@@ -31,6 +31,7 @@ const SignupForm = ({ props }) => {
         e.preventDefault() 
         await props.handleSignup(formData) 
         history.push('/') 
+        console.log('submitted')
     }
 
     return (
@@ -92,7 +93,7 @@ const SignupForm = ({ props }) => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Button className="btn-submit" variant="primary">Sign Up</Button>{' '}
+                <Button type="submit" className="btn-submit" variant="primary">Sign Up</Button>{' '}
             </Form.Group>
         </Form>
     )
