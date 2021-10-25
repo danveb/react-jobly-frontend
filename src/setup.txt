@@ -1,5 +1,6 @@
 $ npx create-react-app react-jobly 
 $ npm install axios
+$ npm install bootstrap 
 $ npm install react-router-dom
 $ npm install react-router-bootstrap 
 $ npm install react-bootstrap 
@@ -10,3 +11,23 @@ $ psql < jobly.sql
 
 $ nodemon server.js (backend) 
 $ npm start (frontend) 
+
+-- Deployment --
+1. React-Jobly backend 
+$ heroku login
+$ heroku create react-jobly-demo
+$ echo "web: node server.js" > Procfile
+$ heroku git:remote -a react-jobly-demo
+$ git add .
+$ git commit -m "ready to deploy backend"
+$ git push heroku master
+$ heroku addons:create heroku-postgresql:hobby-dev -a react-jobly-demo
+$ heroku pg:push jobly DATABASE_URL -a react-jobly-demo
+$ heroku config:set PGSSLMODE=no-verify
+$ heroku open
+
+2. React-Jobly frontend 
+$ npm install --global surge 
+$ REACT_APP_BASE_URL=https://react-jobly-demo.herokuapp.com npm run build 
+$ cp build/index.html build/200.html 
+$ surge build 
