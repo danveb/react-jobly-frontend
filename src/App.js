@@ -88,9 +88,9 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={user}>
-          <FunctionContext.Provider value={{handleJobApp}}>
-          <NavBar />
-          <Routes props={{ handleLogin, handleLogout, handleSignup, updateProfile }}/>
+          <FunctionContext.Provider value={{ handleLogin, handleLogout, handleSignup, updateProfile, handleJobApp }}>
+            <NavBar />
+            <Routes /> 
           </FunctionContext.Provider>
         </UserContext.Provider>
       </BrowserRouter>

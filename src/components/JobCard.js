@@ -15,7 +15,7 @@ const JobCard = ({ title, jobID, salary, equity, companyName }) => {
                 <Card.Text>{companyName}</Card.Text>
                 <Card.Text>{`Salary: $${Number(salary).toLocaleString()} | Equity: ${equity === null ? 0 : equity}%`}</Card.Text>
                 {user.applications.find((j) => j === jobID) ? (
-                    <Button variant="success">Applied</Button>
+                    <Button variant="success" disabled>Applied</Button>
                 ) : (
                     <Button 
                     variant="warning"

@@ -4,7 +4,8 @@ $ npm install bootstrap
 $ npm install react-router-dom
 $ npm install react-router-bootstrap 
 $ npm install react-bootstrap 
-$ npm install react-strap 
+$ npm install formik 
+$ npm install yup 
 
 $ createdb jobly 
 $ psql < jobly.sql 

@@ -28,7 +28,7 @@ const CompanyList = () => {
         // searchTerm dependency now
     }, [searchTerm]); 
 
-    return user.username ? (
+    return (
         <div className="CompanyList-div">
             <SearchForm updateSearchTerm={updateSearchTerm} /> 
             {companies.map((c) => (
@@ -40,8 +40,6 @@ const CompanyList = () => {
                 />
             ))}
         </div>
-    ) : (
-        <Redirect to="/"></Redirect>
     )
 }
 

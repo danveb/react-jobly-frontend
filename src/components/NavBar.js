@@ -1,52 +1,46 @@
 import React, { useContext } from 'react' 
 import UserContext from '../UserContext'
 import '../static/styles/NavBar.css'
-import { Link } from 'react-router-dom'
-import {
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-} from 'reactstrap'
+import { Navbar, Nav } from 'react-bootstrap' 
+import { LinkContainer } from 'react-router-bootstrap'
 
 const NavBar = () => {
     const user = useContext(UserContext) 
 
     return (
-        <div>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand className="text-primary" tag={Link} to="/">Jobly</NavbarBrand>
+        <Navbar bg="light" expand="lg">
+            <LinkContainer to="/">
+                <Navbar.Brand className="text-primary">Jobly</Navbar.Brand>
+            </LinkContainer>
 
-                {user && user.username ? (
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink tag={Link} to="/companies">Companies</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} to="/jobs">Jobs</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} to="/profile">Profile</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} to="/logout">Logout</NavLink>
-                        </NavItem>
-                    </Nav>
+            {user && user.username ? (
+                <Nav className="mr-auto" navbar>
+                    <LinkContainer to="/companies">
+                        <Nav.Link>Companies</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/jobs">
+                        <Nav.Link>Jobs</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/profile">
+                        <Nav.Link>Profile</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/logout">
+                        <Nav.Link>Logout</Nav.Link>
+                    </LinkContainer>
+                </Nav>
 
-                ) : (
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink tag={Link} to="/login">Login</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} to="/signup">Signup</NavLink>
-                        </NavItem>
-                    </Nav>
-                )}
-                
-            </Navbar>
-        </div>
+            ) : (
+                <Nav className="mr-auto" navbar>
+                    <LinkContainer to="/login">
+                        <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/signup">
+                        <Nav.Link>Signup</Nav.Link>
+                    </LinkContainer>
+                </Nav>
+            )}
+            
+        </Navbar>
     )
 }
 

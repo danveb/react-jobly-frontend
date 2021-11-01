@@ -6,7 +6,7 @@ import JobCard from './JobCard'
 import SearchForm from './SearchForm'
 import useSearchTerm from '../hooks/useSearchTerm'
 
-const JobList = ({ props }) => {
+const JobList = () => {
     const user = useContext(UserContext)
     const [jobs, setJobs] = useState([])
     const [searchTerm, updateSearchTerm] = useSearchTerm() 
@@ -23,7 +23,7 @@ const JobList = ({ props }) => {
         }
     }, [searchTerm]); 
 
-    return user.username ? (
+    return (
         <div className="JobList-div">
             <SearchForm updateSearchTerm={updateSearchTerm} /> 
             {jobs.map((j) => (
@@ -37,8 +37,6 @@ const JobList = ({ props }) => {
                 />
             ))}
         </div>
-    ) : (
-        <Redirect to="/"></Redirect>
     )
 }
 
