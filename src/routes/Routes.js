@@ -10,41 +10,17 @@ import Profile from '../components/Profile'
 import Logout from '../components/Logout'
 
 
-const Routes = ({ props }) => {
+const Routes = () => {
     return (
         <Switch>
-            <Route exact path="/">
-                <Home />
-            </Route>
-
-            <Route exact path="/companies">
-                <CompanyList />
-            </Route>
-
-            <Route path="/companies/:handle">
-                <CompanyDetail />
-            </Route>
-
-            <Route exact path="/jobs">
-                <JobList props={props} /> 
-            </Route>
-
-            <Route exact path="/signup">
-                <SignupForm props={props} />
-            </Route>
-
-            <Route exact path="/login">
-                <LoginForm props={props} />
-            </Route>
-
-            <Route exact path="/profile">
-                <Profile props={props} />
-            </Route>
-
-            <Route exact path="/logout">
-                <Logout props={props} />
-            </Route>
-            
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/companies" component={CompanyList}></Route>
+            <Route exact path="/companies/:handle" component={CompanyDetail}></Route>
+            <Route exact path="/jobs" component={JobList}></Route>
+            <Route exact path="/signup" component={SignupForm}></Route>
+            <Route exact path="/login" component={LoginForm}></Route>
+            <Route exact path="/profile" component={Profile}></Route>
+            <Route exact path="/logout" component={Logout}></Route>
         </Switch>
     )
 }

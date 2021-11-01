@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react' 
+import React, { useEffect, useContext } from 'react' 
 import { Redirect } from 'react-router-dom' 
+import FunctionContext from '../FunctionContext' 
 
-const Logout = ({ props }) => {
+const Logout = () => {
+    const { handleLogout } = useContext(FunctionContext) 
     useEffect(() => {
         return function cleanup() {
-            props.handleLogout()
+            handleLogout()
         }
-    }, [props])
+    }, [handleLogout])
 
     return <Redirect to="/"></Redirect>
 }
